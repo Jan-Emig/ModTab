@@ -5,9 +5,16 @@
     <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ModTab</title>
+    <style>
+      html, body {
+        height: 100vh;
+        overflow: hidden;
+        background: black;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root" style="position: relative"></div>
+    <script type="module" src="/src/app.tsx"></script>
   </body>
 </html>
