@@ -17,6 +17,6 @@ ModTab is currently under intial development but will recieve regular updates in
 The planned design can be found [here in Figma](https://www.figma.com/file/iiywbQRRr5ndVYSL7alAnq/Mockup-V1?node-id=0%3A1).
 
 ### License
-All Rights Reserved. For more information, see the [License file](https://github.com/Jan-Emig/ModTab/license.md).
+All Rights Reserved. For more information, see the [License file](https://github.com/Jan-Emig/ModTab/blob/main/license.md).
 
 <hr />
