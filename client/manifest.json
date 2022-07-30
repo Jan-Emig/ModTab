@@ -1,0 +1,18 @@
+ {
+     "manifest_version": 3,
+     "name": "ModTab",
+     "version": "0.0.1",
+     "description": "Chrome extension for replacing Chrome's default new-tab page",
+     "author": "Jan-Emig",
+     "chrome_url_overrides": {
+         "newtab": "./public/index.html"
+     },
+     "browser_action": {
+         "default_icon":"",
+        "default_title": "ModTab"
+     },
+     "permissions": [
+         "storage",
+         "tabs"
+     ]
+ }
