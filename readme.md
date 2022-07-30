@@ -1,7 +1,7 @@
 <h1 align="center">ModTab</h1>
 
 ### What is ModTab?
-ModTab is a simple yet powerful chrome extenstion to replace the boring new tab page with a useful, modern looking, and easy to use one.
+ModTab is a simple yet powerful chrome extension to replace the boring new tab page with a useful, modern looking, and easy to use one.
 
 ### What can ModTab do?
 - Fully customizable interfaces by moving, en-/disabling, and deleting widgets.
