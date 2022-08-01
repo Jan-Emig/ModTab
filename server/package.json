@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "docker": "docker start mariadb phpmyadmin mailhog",
         "dev": "vite",
         "build": "vite build"
     },
