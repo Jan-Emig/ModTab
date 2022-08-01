@@ -24,8 +24,8 @@ const Background: FC<IBackgroundProps> = ({ type = 'image', source, opacity = 1,
         if (grayscale && grayscale >= 0 && grayscale <= 1) filter += ' grayscale(' + grayscale + ')';
         return (
             <Box
-                width='100%'
-                height='100%'
+                width='100vw'
+                height='100vh'
                 opacity={opacity}
                 filter={filter}
             >
