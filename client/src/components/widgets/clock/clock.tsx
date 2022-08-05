@@ -1,21 +1,27 @@
 import { FC, useEffect, useState } from "react";
 import { Box, Text } from "@chakra-ui/react";
+import SimpleClockFace from "./faces/simpleClockFace";
+import VerticalClockFace from "./faces/verticalClockFace";
+import ShiftedClockFace from "./faces/shiftedClockFace";
 
 interface IClockProps {
     top?: string,
     left?: string,
     alignCenter?: boolean
-    fontSize?: number
+    fontSize?: string | number
 }
 
 const Clock: FC<IClockProps> = ({ top = '50%', left = '50%', alignCenter = true, fontSize = '50px' }) => {
     const [minute, setMinute] = useState(45);
     const [hour, setHour] = useState(20);
+    const [opacity, setOpacity] = useState(0);
     let updateInterval = null;
 
     useEffect(() => {
         updateTime();
         updateInterval = setInterval(updateTime, 5000);
+        // Fade clock in after current time has been set to avoid any flicker
+        setOpacity(1);
     }, []);
     
 
@@ -34,12 +40,13 @@ const Clock: FC<IClockProps> = ({ top = '50%', left = '50%', alignCenter = true,
                 left={left}
                 transform={alignCenter ? 'translate(-50%, -50%)' : ''}
                 color="white"
+                opacity={opacity}
             >
-                <Text
+                <ShiftedClockFace 
+                    hour={hour}
+                    minute={minute}
                     fontSize={fontSize}
-                >
-                    { String(hour).padStart(2, '0') }:{ String(minute).padStart(2, '0') }
-                </Text>
+                />
             </Box>
         )
     }
