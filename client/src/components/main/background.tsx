@@ -24,8 +24,9 @@ const Background: FC<IBackgroundProps> = ({ type = 'image', source, opacity = 1,
         if (grayscale && grayscale >= 0 && grayscale <= 1) filter += ' grayscale(' + grayscale + ')';
         return (
             <Box
-                width='100vw'
-                height='100vh'
+                position='absolute'
+                width='100%'
+                height='100%'
                 opacity={opacity}
                 filter={filter}
             >
@@ -37,8 +38,8 @@ const Background: FC<IBackgroundProps> = ({ type = 'image', source, opacity = 1,
                             width='100%'
                             height='100%'   
                             src={source}
-                            bgRepeat='no-repeat'
-                            bgSize='cover'
+                            objectFit='cover'
+                            draggable='false'
                         />
                     )
                 }

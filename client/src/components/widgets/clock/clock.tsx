@@ -3,6 +3,8 @@ import { Box, Text } from "@chakra-ui/react";
 import SimpleClockFace from "./faces/simpleClockFace";
 import VerticalClockFace from "./faces/verticalClockFace";
 import ShiftedClockFace from "./faces/shiftedClockFace";
+import RoundAnalogClockFace from "./faces/RoundAnalogClockFace";
+import RoundDigitalClockFace from "./faces/roundDigitalClockFace";
 
 interface IClockProps {
     top?: string,
@@ -15,7 +17,7 @@ const Clock: FC<IClockProps> = ({ top = '50%', left = '50%', alignCenter = true,
     const [minute, setMinute] = useState(45);
     const [hour, setHour] = useState(20);
     const [opacity, setOpacity] = useState(0);
-    let updateInterval = null;
+    let updateInterval: number | null = null;
 
     useEffect(() => {
         updateTime();
@@ -42,7 +44,7 @@ const Clock: FC<IClockProps> = ({ top = '50%', left = '50%', alignCenter = true,
                 color="white"
                 opacity={opacity}
             >
-                <ShiftedClockFace 
+                <RoundDigitalClockFace 
                     hour={hour}
                     minute={minute}
                     fontSize={fontSize}

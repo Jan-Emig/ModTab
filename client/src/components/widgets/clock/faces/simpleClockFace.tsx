@@ -8,7 +8,7 @@ interface ISimpleClockFaceProps extends IClockFaceProps {
 
 /**
  * 
- * Simple analog clock face with a static divider between hours and minutes.
+ * Simple digital clock face with a static divider between hours and minutes.
  * 
  */
 const SimpleClockFace: FC<ISimpleClockFaceProps> = ({ hour, minute, fontSize = '80px', showBottomDivider = true, fontFamily = 'roboto' }) => {
