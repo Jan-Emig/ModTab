@@ -5,7 +5,8 @@ import BottomClockDivider from "../BottomClockDivider";
 
 interface IRoundDigitalClockFace extends IClockFaceProps {
     width?: string,
-    height?: string
+    height?: string,
+    color?: string,
 }
 
 /**
@@ -14,7 +15,9 @@ interface IRoundDigitalClockFace extends IClockFaceProps {
  * This component renders a bottom divider.
  * 
  */
-const RoundDigitalClockFace: FC<IRoundDigitalClockFace> = ({ hour, minute, fontSize = '80px', showBottomDivider = true, fontFamily = 'roboto', width = '250px', height = '250px' }) => {
+const RoundDigitalClockFace: FC<IRoundDigitalClockFace> = ({ hour, minute, fontSize = '80px', showBottomDivider = true, fontFamily = 'roboto', width = '250px', height = '250px', color = '#35E899' }) => {
+
+    const calculateDashOffset = (min: number) => 251 - 251 / 60 * min;
 
     const render = () => {
         return (
@@ -24,29 +27,33 @@ const RoundDigitalClockFace: FC<IRoundDigitalClockFace> = ({ hour, minute, fontS
                     fontFamily={fontFamily}
                     textShadow='md'
                     fontWeight='bold'
-                    border='8px solid white'
                     width={width}
                     height={height}
-                    marginBottom='40px'
                     borderRadius='full'
-                    boxShadow='0px 0px 48px 0px rgba(0,0,0,0.2)'
-                ></Box>
+                    marginBottom='40px'
+                >
+                    <svg viewBox='0 0 100 100' strokeDasharray='251' strokeDashoffset={calculateDashOffset(minute)} style={{'transform': 'rotate(-90deg) scale(1.3)'}}>
+                        <circle cx='50' cy='50' r='40' stroke='black' strokeWidth='3.1' fill='transparent' opacity='0.2' />
+                        <circle cx='50' cy='50' r='40' stroke={color} strokeWidth='3' fill='transparent' />
+                    </svg>
+                    <Text
+                        position='absolute'
+                        top='50%'
+                        left='50%'
+                        fontSize={fontSize}
+                        fontFamily={fontFamily}
+                        fontWeight='bold'
+                        letterSpacing='wide'
+                        transform='translate(-50%, -50%)'
+                    >
+                        { String(hour).padStart(2, '0') }:{ String(minute).padStart(2, '0') }
+                    </Text>
+                </Box>
                 {
                     showBottomDivider &&
                         <BottomClockDivider />
                 }
             </>
-            // <>
-            //     <Text 
-            //         fontSize={ fontSize }
-            //         fontFamily={ fontFamily }
-            //         textShadow='md'
-            //         fontWeight='bold'
-            //         letterSpacing='wide'
-            //     >
-            //         { String(hour).padStart(2, '0') }:{ String(minute).padStart(2, '0') }
-            //     </Text>
-            // </>
         )
     }
 

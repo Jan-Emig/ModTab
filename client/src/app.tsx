@@ -29,7 +29,7 @@ const App: FC = () => {
                     opacity={0.7}
                     blur={1}
                 />
-                <Clock fontSize='80px' />
+                <Clock fontSize='60px' />
             </ChakraProvider>
         )
     };
